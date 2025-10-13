@@ -1,0 +1,19 @@
+/* Remove default list markers */
+.custom-ol,
+.custom-ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Custom marker for ordered list */
+.custom-ol li::before {
+    content: "👉 ";
+    color: #007BFF;
+    font-weight: bold;
+}
+
+/* Custom marker for unordered list */
+.custom-ul li::before {
+    content: "🍎 ";
+    margin-right: 5px;
+}

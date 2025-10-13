@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+
+    <!-- ✅ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- ✅ Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(to right, #007BFF, #00C6FF);
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .hero button {
+            background-color: #fff;
+            color: #007BFF;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #005ecb;
+            color: #fff;
+        }
+
+        /* ========== FEATURES SECTION ========== */
+        .features {
+            padding: 80px 20px;
+            background-color: #f9fafc;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .feature-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            width: 280px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .contact a {
+            display: inline-block;
+            background: #fff;
+            color: #007BFF;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .contact a:hover {
+            background: #005ecb;
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .feature-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <h1>Welcome to Our Website</h1>
+        <p>We provide the best solutions to grow your business.</p>
+        <button>Get Started</button>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="features">
+        <h2>Our Features</h2>
+        <div class="feature-list">
+
+            <div class="feature-item">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Fast Performance</h3>
+                <p>Experience lightning-fast load times and smooth performance across all devices.</p>
+            </div>
+
+            <div class="feature-item">
+                <i class="fa-solid fa-lock"></i>
+                <h3>Secure Platform</h3>
+                <p>Your data is protected with industry-leading security and privacy standards.</p>
+            </div>
+
+            <div class="feature-item">
+                <i class="fa-solid fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Our team is here to help you anytime with fast and friendly assistance.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or need support? We’d love to hear from you.</p>
+        <a href="mailto:info@example.com">Email Us</a>
+    </section>
+
+</body>
+
+</html>

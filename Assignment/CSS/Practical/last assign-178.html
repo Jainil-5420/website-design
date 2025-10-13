@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Webpage with Navigation</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #0077cc;
+            padding: 15px 0;
+        }
+
+        .nav-horizontal {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .nav-horizontal li {
+            margin: 0 20px;
+        }
+
+        .nav-horizontal a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-horizontal a:hover {
+            color: #ffe600;
+        }
+
+        /* Optional vertical navigation (uncomment to use)
+    .nav-vertical {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      list-style: none;
+      background-color: #0077cc;
+      padding: 20px;
+      width: 200px;
+      height: 100vh;
+    }
+
+    .nav-vertical li {
+      margin: 15px 0;
+    }
+
+    .nav-vertical a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .nav-vertical a:hover {
+      color: #ffe600;
+    } */
+
+        /* Hero Section */
+        .hero {
+            background-color: #e8f1ff;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 3px solid #0077cc;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #0077cc;
+        }
+
+        .hero p {
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            border-bottom: 3px solid #0077cc;
+        }
+
+        .features h2 {
+            text-align: center;
+            color: #0077cc;
+            margin-bottom: 30px;
+        }
+
+        .feature-box {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature {
+            background-color: #f0f8ff;
+            border: 2px solid #0077cc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #f5faff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: #0077cc;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #0077cc;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Menu (Horizontal) -->
+    <nav>
+        <ul class="nav-horizontal">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <h1>Welcome to Our Website</h1>
+        <p>Explore our features and contact us to learn more about our services.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Our Features</h2>
+        <div class="feature-box">
+            <div class="feature">🌟 Fast and Reliable</div>
+            <div class="feature">💡 Innovative Design</div>
+            <div class="feature">🔒 Secure and Safe</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@example.com</p>
+        <p>Phone: +91 98765 43210</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My Styled Webpage | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

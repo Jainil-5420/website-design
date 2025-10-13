@@ -1,0 +1,31 @@
+/* Link styling */
+a:link {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #6c757d;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+a:active {
+    color: #dc3545;
+}
+
+/* Style only the first line of the paragraph */
+p::first-line {
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Decorative ::before element for headings */
+h2::before {
+    content: "★ ";
+    color: gold;
+    font-size: 20px;
+}

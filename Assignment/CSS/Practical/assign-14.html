@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards with Shadow</title>
+    <style>
+        /* Reset defaults */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Flex container */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        /* Product card */
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            /* ✅ Add shadow */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hover effect */
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Product image */
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Title */
+        .product-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 15px 0 8px;
+        }
+
+        /* Description */
+        .product-description {
+            font-size: 0.95rem;
+            color: #555;
+            padding: 0 15px 10px;
+        }
+
+        /* Price */
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .product-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product-container">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://picsum.photos/id/1011/400/300" alt="Wireless Headphones" class="product-image">
+            <h2 class="product-title">Wireless Headphones</h2>
+            <p class="product-description">High-quality sound with active noise cancellation and long battery life.</p>
+            <p class="product-price">$79.99</p>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://picsum.photos/id/1025/400/300" alt="Smart Watch" class="product-image">
+            <h2 class="product-title">Smart Watch</h2>
+            <p class="product-description">Track fitness, monitor health, and stay connected with this sleek smartwatch.
+            </p>
+            <p class="product-price">$129.99</p>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://picsum.photos/id/1005/400/300" alt="Running Sneakers" class="product-image">
+            <h2 class="product-title">Running Sneakers</h2>
+            <p class="product-description">Comfortable and lightweight sneakers designed for running and daily wear.</p>
+            <p class="product-price">$59.99</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
