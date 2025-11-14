@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hotel Guest Registration</title>
+    <style>
+        :root {
+            --max-width: 900px;
+            --accent: #2b6cb0;
+            --danger: #e53e3e;
+            --muted: #6b7280;
+            --bg: #f7fafc;
+            --card: #ffffff;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, #f0f4f8 0%, var(--bg) 100%);
+            color: #111827;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 36px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0 0 12px 0;
+            font-size: 20px;
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 6px 0 18px 0;
+        }
+
+        form {
+            display: grid;
+            gap: 12px;
+        }
+
+        /* Responsive 2-column layout on wider screens */
+        .grid {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: 1fr;
+        }
+
+        @media(min-width:720px) {
+            .grid.two-col {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        label {
+            font-size: 13px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 6px;
+        }
+
+        button {
+            padding: 10px 14px;
+            font-size: 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button.primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        button.ghost {
+            background: transparent;
+            border: 1px solid #d1d5db;
+            color: #111827;
+        }
+
+        .field {
+            position: relative;
+        }
+
+        .error {
+            color: var(--danger);
+            font-size: 12px;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .success {
+            background: #ecfdf5;
+            border: 1px solid #34d399;
+            color: #065f46;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .small {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* small note under inputs */
+        .hint {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="meta">
+                <div>
+                    <h1>Hotel Guest Registration</h1>
+                    <p class="lead">Fill guest details below. This form is responsive and stores submissions in
+                        localStorage.</p>
+                </div>
+                <div class="small">
+                    <a class="link" href="view.html">View submissions</a>
+                </div>
+            </div>
+
+            <div id="successMessage" class="success" role="status" aria-live="polite"></div>
+
+            <form id="guestForm" novalidate>
+                <div class="grid two-col">
+                    <div class="field">
+                        <label for="fullName">Full Name</label>
+                        <input id="fullName" name="fullName" type="text" placeholder="e.g. Priya Sharma" required />
+                        <div id="fullNameError" class="error">Please enter full name.</div>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" name="phone" type="tel" inputmode="numeric"
+                            placeholder="10-digit phone number" required maxlength="10" />
+                        <div id="phoneError" class="error">Phone must be exactly 10 digits.</div>
+                    </div>
+                </div>
+
+                <div class="grid two-col">
+                    <div class="field">
+                        <label for="email">Email Address</label>
+                        <input id="email" name="email" type="email" placeholder="guest@example.com" required />
+                        <div id="emailError" class="error">Please enter a valid email address.</div>
+                    </div>
+
+                    <div class="field">
+                        <label for="aadhar">Aadhar Card Number</label>
+                        <input id="aadhar" name="aadhar" type="text" inputmode="numeric"
+                            placeholder="12-digit Aadhar number" required maxlength="12" />
+                        <div id="aadharError" class="error">Aadhar must be exactly 12 digits.</div>
+                    </div>
+                </div>
+
+                <div class="grid two-col">
+                    <div class="field">
+                        <label for="checkin">Check-in Date</label>
+                        <input id="checkin" name="checkin" type="date" required />
+                        <div id="checkinError" class="error">Please select check-in date.</div>
+                    </div>
+
+                    <div class="field">
+                        <label for="checkout">Check-out Date</label>
+                        <input id="checkout" name="checkout" type="date" required />
+                        <div id="checkoutError" class="error">Please select check-out date (must be same or after
+                            check-in).</div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="purpose">Purpose of Visit</label>
+                    <input id="purpose" name="purpose" type="text" placeholder="Business / Leisure / Other" required />
+                    <div id="purposeError" class="error">Please specify purpose of visit.</div>
+                </div>
+
+                <div class="row">
+                    <button type="reset" class="ghost" id="resetBtn">Reset</button>
+                    <button type="submit" class="primary" id="submitBtn">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const form = document.getElementById('guestForm');
+            const successDiv = document.getElementById('successMessage');
+
+            // Inputs
+            const fullName = document.getElementById('fullName');
+            const phone = document.getElementById('phone');
+            const email = document.getElementById('email');
+            const aadhar = document.getElementById('aadhar');
+            const checkin = document.getElementById('checkin');
+            const checkout = document.getElementById('checkout');
+            const purpose = document.getElementById('purpose');
+
+            // Error elements
+            const fullNameError = document.getElementById('fullNameError');
+            const phoneError = document.getElementById('phoneError');
+            const emailError = document.getElementById('emailError');
+            const aadharError = document.getElementById('aadharError');
+            const checkinError = document.getElementById('checkinError');
+            const checkoutError = document.getElementById('checkoutError');
+            const purposeError = document.getElementById('purposeError');
+
+            // localStorage key
+            const STORAGE_KEY = 'hotelGuests';
+
+            // Utility validators
+            const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            const isDigits = (v, len) => new RegExp('^\\d{' + len + '}$').test(v);
+
+            // show / hide helpers
+            function showError(el) { el.style.display = 'block'; }
+            function hideError(el) { el.style.display = 'none'; }
+
+            // real-time validation handlers (lightweight)
+            phone.addEventListener('input', () => {
+                // allow only digits
+                phone.value = phone.value.replace(/\D/g, '').slice(0, 10);
+                if (isDigits(phone.value, 10)) hideError(phoneError);
+            });
+
+            aadhar.addEventListener('input', () => {
+                aadhar.value = aadhar.value.replace(/\D/g, '').slice(0, 12);
+                if (isDigits(aadhar.value, 12)) hideError(aadharError);
+            });
+
+            email.addEventListener('input', () => {
+                if (isEmail(email.value)) hideError(emailError);
+            });
+
+            fullName.addEventListener('input', () => { if (fullName.value.trim().length) hideError(fullNameError); });
+            checkin.addEventListener('change', () => { if (checkin.value) hideError(checkinError); });
+            checkout.addEventListener('change', () => { if (checkout.value) hideError(checkoutError); });
+            purpose.addEventListener('input', () => { if (purpose.value.trim()) hideError(purposeError); });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                // clear previous messages
+                successDiv.style.display = 'none';
+                let valid = true;
+
+                // Validate Full Name
+                if (!fullName.value.trim()) {
+                    showError(fullNameError); valid = false;
+                } else hideError(fullNameError);
+
+                // Phone
+                if (!isDigits(phone.value, 10)) {
+                    showError(phoneError); valid = false;
+                } else hideError(phoneError);
+
+                // Email
+                if (!isEmail(email.value.trim())) {
+                    showError(emailError); valid = false;
+                } else hideError(emailError);
+
+                // Aadhar
+                if (!isDigits(aadhar.value, 12)) {
+                    showError(aadharError); valid = false;
+                } else hideError(aadharError);
+
+                // Dates
+                if (!checkin.value) {
+                    showError(checkinError); valid = false;
+                } else hideError(checkinError);
+
+                if (!checkout.value) {
+                    showError(checkoutError); valid = false;
+                } else {
+                    // ensure checkout >= checkin (allow same-day)
+                    if (checkin.value && new Date(checkout.value) < new Date(checkin.value)) {
+                        checkoutError.textContent = 'Check-out must be same or after check-in.';
+                        showError(checkoutError);
+                        valid = false;
+                    } else {
+                        checkoutError.textContent = 'Please select check-out date (must be same or after check-in).';
+                        hideError(checkoutError);
+                    }
+                }
+
+                // Purpose
+                if (!purpose.value.trim()) {
+                    showError(purposeError); valid = false;
+                } else hideError(purposeError);
+
+                if (!valid) {
+                    // focus first visible error
+                    const firstError = document.querySelector('.error[style*="display: block"]');
+                    if (firstError) {
+                        const input = firstError.previousElementSibling;
+                        if (input && typeof input.focus === 'function') input.focus();
+                    }
+                    return;
+                }
+
+                // Prepare object
+                const entry = {
+                    id: Date.now().toString(), // unique id
+                    fullName: fullName.value.trim(),
+                    phone: phone.value.trim(),
+                    email: email.value.trim(),
+                    aadhar: aadhar.value.trim(),
+                    checkin: checkin.value,
+                    checkout: checkout.value,
+                    purpose: purpose.value.trim()
+                };
+
+                // Read existing submissions
+                let submissions = [];
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    if (raw) submissions = JSON.parse(raw);
+                    if (!Array.isArray(submissions)) submissions = [];
+                } catch (err) {
+                    submissions = [];
+                }
+
+                // Append & save
+                submissions.push(entry);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(submissions));
+
+                // Show success and reset form
+                successDiv.textContent = 'Guest details saved successfully.';
+                successDiv.style.display = 'block';
+
+                form.reset();
+
+                // Reset any visible errors (in case)
+                document.querySelectorAll('.error').forEach(hideError);
+
+                // Optionally focus first field
+                fullName.focus();
+            });
+
+            // Reset button: hide messages & errors
+            document.getElementById('resetBtn').addEventListener('click', () => {
+                successDiv.style.display = 'none';
+                document.querySelectorAll('.error').forEach(hideError);
+            });
+
+            // Accessibility: set minimum date for check-in to today (optional)
+            (function setMinDates() {
+                const today = new Date().toISOString().split('T')[0];
+                checkin.setAttribute('min', today);
+                checkout.setAttribute('min', today);
+            })();
+
+        })();
+    </script>
+</body>
+
+</html>
