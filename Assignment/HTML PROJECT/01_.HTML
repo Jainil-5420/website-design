@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- external css file link -->
+    <link rel="stylesheet" href="02.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact Us</title>
+
+    <!-- google map api -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script>
+        /* ------------------------------
+           initialize google map
+        ------------------------------ */
+        function initmap() {
+            var location = { lat: 23.0225, lng: 72.5714 }; // ahmedabad
+
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: location
+            });
+
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+
+        /* ------------------------------
+           validate form inputs
+        ------------------------------ */
+        function validateform() {
+            var name = document.getElementById("name").value.trim();
+            var mobile = document.getElementById("mobile").value.trim();
+
+            // empty check
+            if (name === "" || mobile === "") {
+                alert("all fields are required!");
+                return false;
+            }
+
+            // name : only alphabets, 3–6 chars
+            var namepattern = /^[a-zA-Z]{3,6}$/;
+            if (!namepattern.test(name)) {
+                alert("name must contain 3 to 6 alphabets only!");
+                return false;
+            }
+
+            // mobile : only digits, exactly 10
+            var mobilepattern = /^[0-9]{10}$/;
+            if (!mobilepattern.test(mobile)) {
+                alert("mobile number must be exactly 10 digits!");
+                return false;
+            }
+
+            alert("form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+
+<body onload="initmap()">
+
+    <div class="container">
+        <h2 class="title">contact form</h2>
+
+        <!-- contact form -->
+        <form class="contact-form" onsubmit="return validateform()">
+
+            <label for="name">name:</label>
+            <input type="text" id="name" class="input" placeholder="enter name">
+
+            <label for="mobile">mobile:</label>
+            <input type="text" id="mobile" class="input" placeholder="enter mobile number">
+
+            <button type="submit" class="btn">submit</button>
+        </form>
+
+        <!-- google map box -->
+        <div id="map" class="map"></div>
+    </div>
+
+</body>
+
+</html>
