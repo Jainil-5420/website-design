@@ -1,0 +1,206 @@
+/* Minimal modern responsive styling */
+:root {
+    --accent: #2563eb;
+    --muted: #6b7280;
+    --bg: #f8fafc;
+    --card: #ffffff;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    margin: 0;
+    background: var(--bg);
+    color: #0f172a;
+    line-height: 1.4
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem
+}
+
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #e6eef8;
+    position: sticky;
+    top: 0;
+    z-index: 20
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--accent)
+}
+
+.nav a {
+    margin-left: 1rem;
+    color: var(--muted);
+    text-decoration: none
+}
+
+.hero {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem
+}
+
+.hero h2 {
+    font-size: 1.6rem;
+    margin: 0 0 .5rem
+}
+
+.cta-row {
+    margin-top: 1rem
+}
+
+.btn {
+    background: var(--accent);
+    color: #fff;
+    padding: .55rem .9rem;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(37, 99, 235, .12)
+}
+
+.btn.small {
+    padding: .4rem .6rem;
+    font-size: .9rem
+}
+
+.btn.danger {
+    background: #ef4444
+}
+
+.section {
+    padding: 1.25rem 0
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem
+}
+
+.card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 6px 18px rgba(14, 23, 47, .06)
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    height: 140px;
+    object-fit: cover
+}
+
+.card h4 {
+    margin: 0.6rem 0 0.25rem;
+    font-size: 1rem
+}
+
+.card .muted {
+    color: var(--muted);
+    font-size: .9rem;
+    margin-bottom: .7rem
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.notes-ui {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start
+}
+
+.note-form input,
+.note-form textarea {
+    width: 100%;
+    padding: .6rem;
+    border-radius: 8px;
+    border: 1px solid #e6eef8;
+    margin-bottom: .5rem;
+    font-size: .95rem
+}
+
+.notes-controls {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap
+}
+
+.notes-list {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: 8px;
+    min-height: 120px
+}
+
+.note-item {
+    border-bottom: 1px dashed #e8eef6;
+    padding: .6rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start
+}
+
+.note-item:last-child {
+    border-bottom: none
+}
+
+.note-actions button {
+    margin-left: .4rem
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.site-footer {
+    padding: 1rem 0;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid #eef4fb;
+    margin-top: 2rem
+}
+
+/* Responsive */
+@media (max-width:800px) {
+    .notes-ui {
+        grid-template-columns: 1fr
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: left
+    }
+}
