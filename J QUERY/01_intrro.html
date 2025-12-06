@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Helo this tager her</h1>
+
+    <p>asdjguasdgh</p>
+
+    <button class="btn">Hide data</button>
+    <button class="btn1">Show</button>
+    <button class="btn2">toggle</button>
+
+    <script>
+        $(document).ready(function () {
+            $(".btn").click(function () {
+                $("h1").hide(2000)
+            })
+        })
+
+        $(document).ready(function () {
+            $(".btn1").click(function () {
+                $("h1").show(2000)
+            })
+        })
+
+        $(document).ready(function () {
+            $(".btn2").click(function () {
+                $("h1").toggle(1000)
+            })
+        })
+    </script>
+
+</body>
+
+</html>

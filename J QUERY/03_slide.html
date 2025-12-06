@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .blue {
+            color: "red";
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">slide up</button>
+    <button class="stopd">stop</button>
+    <button class="btn1">slide down</button>
+    <button class="btn2">toggle</button>
+    <h1 style="background-color: lightcoral;color: white;padding: 50px;">Helo this tager her</h1>
+    <button class="app">Data</button>
+    <p>asdjguasdgh</p>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(".app").click(function () {
+
+                $("p").append("<b>hello shubhan</b>")
+
+            })
+        })
+        $(document).ready(function () {
+            $(".btn").click(function () {
+                $("h1").slideUp(2000)
+                $("p").addClass("blue")
+            })
+        })
+        $(document).ready(function () {
+            $(".stopd").click(function () {
+                $("h1").stop()
+            })
+        })
+
+        $(document).ready(function () {
+            $(".btn1").click(function () {
+                $("h1").slideDown(2000)
+            })
+        })
+
+        $(document).ready(function () {
+            $(".btn2").click(function () {
+                $("h1").slideToggle("slow")
+            })
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button class="btn">fad out</button>
+    <button class="btn1">fade show</button>
+    <button class="btn2">toggle</button>
+    <h1 style="background-color: lightcoral;color: white;padding: 50px;">Helo this tager her</h1>
+
+    <p>asdjguasdgh</p>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(".btn").click(function () {
+                $("h1").fadeOut(1000)
+            })
+        })
+
+        $(document).ready(function () {
+            $(".btn1").click(function () {
+                $("h1").fadeIn(2000)
+            })
+        })
+
+        $(document).ready(function () {
+            $(".btn2").click(function () {
+                $("h1").fadeToggle("slow")
+            })
+        })
+    </script>
+
+</body>
+
+</html>
